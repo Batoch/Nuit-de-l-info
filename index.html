@@ -8,23 +8,23 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
-    <script src="https://unpkg.com/babel-transform-in-browser@6.4.6/dist/btib.min.js"></script>
+      <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+      <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+      <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+      <script src="https://unpkg.com/babel-transform-in-browser@6.4.6/dist/btib.min.js"></script>
 
 
-    <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
-    <div class="mapouter">
-        <div class="gmap_canvas">
-            <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+      <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
+      <div class="mapouter">
+          <div class="gmap_canvas">
+              <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
 
-            </iframe>
-        </div>
-    </div>
+              </iframe>
+          </div>
+      </div>
 
-    <!-- Webcam Live Broadcast -->
-    <div id="webcam"></div>
-    <script type="text/babel" src="index.jsx"></script>
+      <!-- Webcam Live Broadcast -->
+      <div id="webcam" />
+      <script type="text/babel" src="index.jsx"></script>
     </body>
 </html>
