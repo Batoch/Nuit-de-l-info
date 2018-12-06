@@ -8,6 +8,11 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/prop-types@15.6.1/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-transform-in-browser@6.4.6/dist/btib.min.js"></script>
+    <script src="js/webcam.js"></script>
 
     <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
     <div class="mapouter">
@@ -19,9 +24,95 @@
     </div>
 
     <!-- Webcam Live Broadcast -->
-    <div class="">
-        <video id="videoElement" autoplay/>
-        <script src="js/webcam.js"/>
-    </div>
+    <div id="webcam" />
+        <script type="text/es2015">
+            class App extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        screenshot: null,
+                        tab: 0
+                    };
+                }
+                handleClick = () => {
+                    const screenshot = this.webcam.getScreenshot();
+                    this.setState({ screenshot });
+                }
+                render() {
+                    return (
+                        <div>
+                            <h1>react-webcam</h1>
+                            <Webcam
+                                audio={false}
+                                ref={node => this.webcam = node}
+                            />
+                            <div>
+                                <h2>CSS Filters & style prop</h2>
+                                <div className='webcams'>
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                        style={{ transform: 'rotate(180deg)' }}
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                        style={{ transform: 'rotate(180deg)' }}
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                        style={{ transform: 'rotate(180deg)' }}
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                    />
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                        style={{ transform: 'rotate(180deg)' }}/>
+                                    <Webcam
+                                        audio={false}
+                                        width='212'
+                                        height='160'
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <h2>Screenshots</h2>
+                                <div className='screenshots'>
+                                    <div className='controls'>
+                                        <button onClick={this.handleClick}>capture</button>
+                                    </div>
+                                    {this.state.screenshot ? <img src={this.state.screenshot} /> : null}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(<App />, document.getElementById('webcam'));
+        </script>
     </body>
 </html>
