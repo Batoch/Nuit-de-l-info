@@ -1,33 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <title>Tableau de Bord</title>
         <meta name="description" content="DESCRIPTION">
 
         <link rel="stylesheet" href="css/styles.css">
-        <style>
-            #videoElement {
-                width: 500px;
-                height: 375px;
-                background-color: #666;
-            }
-        </style>
-        <script>
-            let video = document.querySelector("#videoElement");
-
-            if (navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({video: true})
-                    .then(function(stream) {
-                        video.srcObject = stream;
-                    })
-                    .catch(function(err0r) {
-                        console.log("Something went wrong!");
-                    });
-            }
-        </script>
     </head>
     <body>
-    <meta charset="UTF-8">
-    <title>Never tacos again</title>
 
     <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
     <div class="mapouter">
@@ -36,12 +16,12 @@
 
             </iframe>
         </div>
-        <style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style>
     </div>
 
     <!-- Webcam Live Broadcast -->
     <div class="">
-        <video autoplay="true" id="videoElement" />
+        <video id="videoElement" autoplay/>
+        <script src="js/webcam.js"/>
     </div>
     </body>
 </html>
