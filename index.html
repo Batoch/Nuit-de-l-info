@@ -6,6 +6,7 @@
         <meta name="description" content="DESCRIPTION">
 
         <link rel="stylesheet" href="css/styles.css">
+        (<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
 
@@ -17,9 +18,16 @@
       </div>
 
       <!-- Webcam Live Broadcast -->
-      <div>
+      <div id="webcammirror">
         <div><video id="videoElement" width="640" height="480" autoplay="true"> </video></div>
         <script src="js/webcam.js"></script>
       </div>
+
+      <div id="weather">
+        <div id="temp"></div>
+        <div id="location"></div>
+        <script src="js/weather.js"></script>
+      </div>
+
     </body>
 </html>
