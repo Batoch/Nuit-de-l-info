@@ -6,8 +6,8 @@ function weather() {
   navigator.geolocation.getCurrentPosition(success, error);
 
   function success(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
 
     location.innerHTML =
       "Latitude is " + latitude + "° Longitude is " + longitude + "°";
