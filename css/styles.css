@@ -16,6 +16,10 @@ body{
     box-shadow: 0 1px 10px #888888;
 }
 
+#temp {
+
+}
+
 .mapouter{
     height: 500px;
     margin-left: auto;
