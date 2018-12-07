@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tableau de Bord</title>
+        <meta name="description" content="DESCRIPTION">
+
+        <link rel="stylesheet" href="css/styles.css">
+        (<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+        <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
+        <div class="mapouter">
+            <div class="gmap_canvas" id="gmaps">
+                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <script src="js/gmaps.js"></script>
+            </div>
+        </div>
+
+        <!-- Webcam Live Broadcast -->
+        <div id="webcammirror">
+            <div><video id="videoElement" width="640" height="480" autoplay="true"> </video></div>
+            <script src="js/webcam.js"></script>
+        </div>
+
+        <div id="weather">
+            <h2><div id="temp"></div></h2>
+            <div id="location"></div>
+            <script src="js/weather.js"></script>
+        </div>
+
+    </body>
+</html>

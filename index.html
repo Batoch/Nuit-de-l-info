@@ -1,34 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Tableau de Bord</title>
-        <meta name="description" content="DESCRIPTION">
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tacos 3 viandes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-        <link rel="stylesheet" href="css/styles.css">
-        (<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    </head>
-    <body>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-        <!-- PARTIE INTEGRATION D'UNE FENETRE MAPS (in progress)-->
-        <div class="mapouter">
-            <div class="gmap_canvas" id="gmaps">
-                <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Paris&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                <script src="js/gmaps.js"></script>
-            </div>
-        </div>
+				<!-- Header -->
+					<header id="header" class="alt">
+                        <span><img src="logo.png" width=100 height=61 border="0" align="left"/></span>
+						<a href="index.html" class="logo"><strong>TACOS</strong> <span>3 viandes...</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
 
-        <!-- Webcam Live Broadcast -->
-        <div id="webcammirror">
-            <div><video id="videoElement" width="640" height="480" autoplay="true"> </video></div>
-            <script src="js/webcam.js"></script>
-        </div>
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Page d'accueil</a></li>
+							<li><a href="camera.html">Camera</a></li>
+							<li><a href="boussole.html">Boussole</a></li>
+							<li><a href="meteo.html">Météo</a></li>
+                            <li><a href="carte.html">Carte</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Tableau de bord</a></li>
+						</ul>
+					</nav>
 
-        <div id="weather">
-            <h2><div id="temp"></div></h2>
-            <div id="location"></div>
-            <script src="js/weather.js"></script>
-        </div>
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Tacos 3 viandes</h1>
+							</header>
+							<div class="content">
+								<!--
+                                <p>Projets :<br />
+								Piñata, map, logo, IA, 3D</p>
+                                -->
+								<ul class="actions">
+									<li><a href="#one" class="button next scrolly">Tableau de bord</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
 
-    </body>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="boussole.html" class="link">Animation 3D</a></h3>
+										<p>Boussole en 3D</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic02.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="meteo.html" class="link">Météo</a></h3>
+										<p>Infos sur la météo</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/pic03.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="carte.html" class="link">GPS</a></h3>
+										<p>Localisation actuelle</p>
+									</header>
+								</article>
+								<article>
+                                    <span class="image">
+                                        <img src="images/pic04.jpg" alt="" />
+                                    </span>
+                                    <header class="major">
+                                        <h3><a href="camera.html" class="link">Caméra</a></h3>
+                                        <p>Look at YOU</p>
+                                    </header>
+                                </article>
+                                <article>
+                                    <span class="image">
+                                        <img src="images/pic05.jpg" alt="" />
+                                    </span>
+                                    <header class="major">
+                                        <h3><a href="Intelligence_Artificielle/ia.html" class="link">Prédiction de l'évolution de la température</a></h3>
+                                        <p>En cours de développement...</p>
+                                    </header>
+                                </article>
+								
+
+							</section>
+
+						<!-- Two -->
+							<section id="two">
+								<div class="inner">
+									<header class="major" style="font-size : 1.4em">
+										<h2>Tableau de bord du module de survie</h2>
+									</header>
+									<p align = "left" style = "font-size : 2.0em">L'assistance numérique d'un explorateur en conditions extrêmes</p>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; lama</li><li>Design: <a href="lama.html">LAMA</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
+
+
+
+

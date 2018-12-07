@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+
+<html>
+
+<head>
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="brain-0.6.3.js"></script>
+
+    <script>
+        var net = null;
+        var realdps = []; // dataPoints
+        var preddps = [];
+        var chartreal = null;
+        var chartpred = null;
+
+        var xVal = 0;
+        var yVal = 0;
+        var yValSpeed = 1;//On tuilisera une fonction sinus discrète (suite solution de l'équa diff de sinus)
+        var updateInterval = 1000;
+        var dataLength = 20; // number of dataPoints visible at any point
+        var isnetinit = 0;
+
+        var train_nn = function (number_of_examples) {
+
+            var traindps = [];
+            var inputdps = [];
+            for (var j = 0; j < number_of_examples; j++) {
+                yVal = yVal + yValSpeed;
+                yValSpeed = yValSpeed - 0.5 * yVal;
+                traindps.push(yVal);
+            };
+
+            var tempinput = [];
+            for (var j = 10; j < number_of_examples; j++) {
+                tempinput = [];
+                for (var i = 0; i < 10; i++) {
+                    tempinput.push(traindps[j - 10 + i]);//On garde les 10 élements précedents
+                }
+                inputdps.push({ input: tempinput, output: traindps[j] });
+            };
+            console.log("Entrainement du réseau");
+            net.train(inputdps);
+            isnetinit = 1;
+        };
+
+        var newPoints = function () {
+            count = dataLength;
+            for (var j = 0; j < count; j++) {
+                yVal = yVal + yValSpeed;
+                yValSpeed = yValSpeed - 0.5 * yVal;
+                realdps.push({
+                    x: xVal,
+                    y: yVal
+                });
+                preddps.push({
+                    x: xVal,
+                    y: yVal
+                });
+                xVal++;
+            };
+            if (realdps.length > dataLength) {
+                realdps.shift();
+            };
+            if (preddps.length > dataLength) {
+                preddps.shift();
+            };
+            chartreal.render();
+            chartpred.render();
+        };
+
+        var nextPred = function () {
+            yVal = yVal + yValSpeed;
+            yValSpeed = yValSpeed - 0.5 * yVal;
+            xVal++;
+            realdps.push({
+                x: xVal,
+                y: yVal
+            });
+
+
+            var tempinput = [];
+            for (var i = 0; i < 10; i++) {
+                tempinput.push(realdps[9+i]["y"]);
+            }
+            var output = net.run(tempinput);
+            console.log(output);
+
+            preddps.push({
+                x: xVal,
+                y: output
+            });
+
+            if (realdps.length > dataLength) {
+                realdps.shift();
+            };
+            if (preddps.length > dataLength) {
+                preddps.shift();
+            };
+
+            chartreal.render();
+            chartpred.render();
+        };
+
+        window.onload = function () {
+            net = new brain.NeuralNetwork({
+                hiddenLayers: [3, 3],//Petit réseau de neuronnes
+                learningRate: 0.1 // global learning rate, useful when training using streams
+            });
+
+            chartreal = new CanvasJS.Chart("chartrealContainer", {
+                title: {
+                    text: "Vraies températures"
+                },
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: realdps
+                }]
+            });
+
+            chartpred = new CanvasJS.Chart("chartpredContainer", {
+                title: {
+                    text: "Températures prédites"
+                },
+                axisY: {
+                    includeZero: false
+                },
+                data: [{
+                    type: "line",
+                    dataPoints: preddps
+                }]
+            });
+
+            newPoints();
+        };
+    </script>
+</head>
+
+<body>
+    <div id="chartrealContainer" style="height: 300px; width: 600px;"></div>
+    <div id="chartpredContainer" style="height: 300px; width: 600px;"></div>
+
+    <label for="labeltaillejdd">Taille du jeu de données:</label>
+
+    <input type="text" id="jdd" name="name" value=50000>
+    <input class="train_button" type="button" onclick="train_nn(50000);" value="Entrainer le réseau">
+    <input class="pred_button" type="button" onclick="nextPred();" value="Prédire le prochain point">
+</body>
+
+</html>
